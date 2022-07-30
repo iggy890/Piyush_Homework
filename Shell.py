@@ -2502,7 +2502,6 @@ Ex3:
 [1,-1] ==>1-1=0==>[1,-1] 
  
 note: (1-1) because 1 is first side and -1 is last side... (= 0) because sum of list without sides (1, -1) = 0 
-"""
 
 def total(l):
     s = 0
@@ -2518,9 +2517,10 @@ def scatter(l, l2):
                 break
         except IndexError:
             return True
-        l.remove(l[0])
-        l.remove(l[-1])
+        l.pop(0)
+        l.pop()
 
     return False
 
 print(scatter([1, 2, 3, 4, 5], [2, 4]))
+"""
