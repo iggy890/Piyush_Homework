@@ -1,3 +1,4 @@
+# https://1drv.ms/u/s!AhRsWP77xvhXgn7YdnL7ZveDWyVe
 """
 t = "h"
 if t == "t":
@@ -2523,4 +2524,25 @@ def scatter(l, l2):
     return False
 
 print(scatter([1, 2, 3, 4, 5], [2, 4]))
+
+Your task is to sum the differences between consecutive pairs in the array in descending order. 
+Example 
+[2, 1, 10]  -->  9 
+ 
+In descending order: [10, 2, 1] 
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9 
+If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust). 
 """
+
+def sum_diff(l):
+    l.sort()
+    l.reverse()
+    if len(l) == 0 or len(l) == 1:
+        return 0
+    else:
+        s = 0 
+        for i in range(len(l) - 1, 0, -1):
+            s += (l[i] - l[i - 1])
+        return s
+
+print(sum_diff([10, 1, 2]))
