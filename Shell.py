@@ -2570,4 +2570,52 @@ def elevator(left, right, call):
         return "right"
 
 print(elevator(0, 2, 1))
+
+Given an array of size N-1 such that it only contains distinct integers in the range of 1 to N. Find the missing element. 
+Example 1: 
+Input: 
+N = 5 
+A[] = {1,2,3,5} 
+Output: 4 
+Example 2: 
+Input: 
+N = 10 
+A[] = {6,1,2,8,3,4,7,10,5} 
+Output: 9
+do this question with two methods (not the function/class type!)
+
+Given a string S, the task is to create a string with the first letter of every word in the string. 
+Example 1: 
+Input:  
+S = "geeks for geeks" 
+Output: gfg 
+ 
+Example 2: 
+Input:  
+S = "bad is good" 
+Output: big 
 """
+
+# Q1:
+
+def add(n):
+    s = 0
+    while True:
+        s += n
+        n -= 1
+        if n == 0:
+            return s
+
+def find_missing_element(l, n):
+    if not sum(l) == add(n):
+        return add(n) - sum(l)
+    else:
+        return "No missing element"
+
+def find_missing_element2(l, n):
+    while True:
+        if not n in l:
+            return n
+        elif n == 0:
+            return "No missing element"
+        n -= 1
