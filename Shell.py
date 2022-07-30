@@ -2619,3 +2619,21 @@ def find_missing_element2(l, n):
         elif n == 0:
             return "No missing element"
         n -= 1
+
+# Q2:
+
+def first_letter(s):
+    beforeSpace = False
+    newS = ""
+    s = " " + s
+    for i in s:
+        if i == " ":
+            beforeSpace = True
+        else:
+            if beforeSpace:
+                newS = newS + str(i)
+            beforeSpace = False
+
+    return newS
+
+print(first_letter("ray vle"))
