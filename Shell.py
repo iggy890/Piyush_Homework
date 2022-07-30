@@ -2532,7 +2532,6 @@ Example
 In descending order: [10, 2, 1] 
 Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9 
 If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust). 
-"""
 
 def sum_diff(l):
     l.sort()
@@ -2546,3 +2545,29 @@ def sum_diff(l):
         return s
 
 print(sum_diff([10, 1, 2]))
+
+Closest elevator 
+Given 2 elevators (named "left" and "right") in a building with 3 floors (numbered 0 to 2), write a function elevator accepting 3 arguments (in order): 
+left - The current floor of the left elevator 
+right - The current floor of the right elevator 
+call - The floor that called an elevator 
+It should return the name of the elevator closest to the called floor ("left"/"right"). 
+In the case where both elevators are equally distant from the called floor, choose the elevator to the right. 
+You can assume that the inputs will always be valid integers between 0-2. 
+Examples: 
+elevator(0, 1, 0); // => "left" 
+elevator(0, 1, 1); // => "right" 
+elevator(0, 1, 2); // => "right" 
+elevator(0, 0, 0); // => "right" 
+elevator(0, 2, 1); // => "right" 
+
+def elevator(left, right, call):
+    left_diff = abs(left - call)
+    right_diff = abs(right - call)
+    if left_diff < right_diff:
+        return "left"
+    else:
+        return "right"
+
+print(elevator(0, 2, 1))
+"""
