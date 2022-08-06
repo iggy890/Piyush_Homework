@@ -2671,4 +2671,35 @@ def find_pairs(l: list, s: int):
 print(find_pairs([1, 2, 5], 6))
 
 Given an array a[] of size N which contains elements from 0 to N-1, you need to find all the elements occurring more than once in the given array.
+Input:
+N = 5
+a[] = {2,3,1,2,3}
+Output: 2 3
+
+def reccuring_elements(l):
+    l2 = []
+    l3 = []
+
+    for i in l:
+        if not i in l2:
+            l2.append(i)
+        else:
+            l3.append(i)
+    
+    return set(l3)
+
+print(reccuring_elements([1, 2, 3, 4, 3, 2, 2, 3, 2, 3]))
+
+def remove_duplicates(l):
+    return set(l)
+
+Given an array having both positive and negative integers. The task is to compute the length of the largest subarray with sum 0. 
+Input:
+N = 8
+A[] = {15,-2,2,-8,1,7,10,23}
+Output: 5
+Explanation: The largest subarray with
+sum 0 will be -2 2 -8 1 7.
+
+subarray = a collection of the values inside of an array
 """
