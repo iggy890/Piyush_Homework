@@ -2598,7 +2598,7 @@ Output: big
 
 # Q1:
 
-def add(n):
+def add_factorial(n):
     s = 0
     while True:
         s += n
@@ -2607,8 +2607,10 @@ def add(n):
             return s
 
 def find_missing_element(l, n):
-    if not sum(l) == add(n):
-        return add(n) - sum(l)
+    add_fact = add_factorial(n)
+
+    if not sum(l) == add_fact:
+        return add_fact(n) - sum(l)
     else:
         return "No missing element"
 
