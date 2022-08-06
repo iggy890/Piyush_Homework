@@ -1,5 +1,5 @@
 # https://1drv.ms/u/s!AhRsWP77xvhXgn7YdnL7ZveDWyVe
-"""
+a = """
 t = "h"
 if t == "t":
     print("The t value has a value of t")
@@ -2594,7 +2594,7 @@ Example 2:
 Input:  
 S = "bad is good" 
 Output: big 
-"""
+
 
 # Q1:
 
@@ -2610,7 +2610,7 @@ def find_missing_element(l, n):
     add_fact = add_factorial(n)
 
     if not sum(l) == add_fact:
-        return add_fact(n) - sum(l)
+        return add_fact - sum(l)
     else:
         return "No missing element"
 
@@ -2639,3 +2639,36 @@ def first_letter(s):
     return newS
 
 print(first_letter("ray vle"))
+
+# Create a function that will accept two parameters 1: an array of numbers and 2: s = sum
+# Create an algorithm to find the pair of numbers whos summation is equal to s
+# s = 5 pair = 2 and 3
+
+def find_pairs(l: list, s: int):
+    try:
+        for i in range(0, len(l)):
+            last, current, next = l[i - 1], l[i], l[i + 1]
+
+            if s == last + current:
+                return [last, current]
+            elif s == current + next:
+                return [current, next]
+
+        return "No value found."
+
+    except Exception:
+        return "Error" 
+
+print(find_pairs([1, 2], 3))
+
+def find_pairs(l: list, s: int):
+    for i in l:
+        for j in l:
+            if i + j == s:
+                return [i, j]
+    return "No value found"
+
+print(find_pairs([1, 2, 5], 6))
+
+Given an array a[] of size N which contains elements from 0 to N-1, you need to find all the elements occurring more than once in the given array.
+"""
