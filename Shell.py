@@ -2712,7 +2712,7 @@ a = amazon
 b = azonam
 Output: 1
 Explanation: amazon can be rotated anticlockwise by two places, which will make it as azonam.
-"""
+
 # Clockwise Shift
 def clockwise_shift(a: str, b: str):
     for i in range(2):
@@ -2745,3 +2745,4 @@ def shift(text: str, number: int):
     return text
 
 print(shift("amazon", 2))
+"""
