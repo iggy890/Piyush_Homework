@@ -2702,4 +2702,46 @@ Explanation: The largest subarray with
 sum 0 will be -2 2 -8 1 7.
 
 subarray = a collection of the values inside of an array
+
+Given two strings a and b. The task is to find if the string 'b' can be obtained by rotating another string 'a' by exactly 2 places.
+
+Example 1:
+
+Input:
+a = amazon
+b = azonam
+Output: 1
+Explanation: amazon can be rotated anticlockwise by two places, which will make it as azonam.
 """
+# Clockwise Shift
+def clockwise_shift(a: str, b: str):
+    for i in range(2):
+        last = a[-1]
+
+        a = a.removesuffix(last)
+        a = last + a
+
+    return a == b
+
+# Anti clockwise shift
+def anti_clockwise_shift(a: str, b: str):
+    for i in range(2):
+        first = a[0]
+
+        a = a.removeprefix(first)
+        a = a + first
+
+    return a == b
+
+
+# Anti clockwise shift with a number to control it
+def shift(text: str, number: int):
+    for i in range(number):
+        first = text[0]
+
+        text = text.removeprefix(first)
+        text = text + first
+    
+    return text
+
+print(shift("amazon", 2))
