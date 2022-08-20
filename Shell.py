@@ -1,4 +1,5 @@
 # https://1drv.ms/u/s!AhRsWP77xvhXgn7YdnL7ZveDWyVe
+import time, random
 a = """
 t = "h"
 if t == "t":
@@ -2745,4 +2746,141 @@ def shift(text: str, number: int):
     return text
 
 print(shift("amazon", 2))
+
+Given two strings 'str1' and 'str2', check if these two strings are isomorphic (similar) to each other.
+Two strings str1 and str2 are called isomorphic if there is a one to one mapping possible for every character of str1 to every character of str2 while preserving the order.
+Note: All occurrences of every character in str1 should map to the same character in str2
+
+Example 1:
+
+Input:
+str1 = aab
+str2 = xxy
+Output: 1
+Explanation: There are two different
+charactersin aab and xxy, i.e a and b
+with frequency 2 and 1 respectively.
+
+Welcome to the world of the National Football League! 
+In the NFL the Triple Crown is given when a receiver has the most receiving yards, the most receiving touchdowns and the most receptions in a single season. 
+This year Cooper Kupp managed to get it, however it is quite rare because the last one was in 2005 by Steve Smith. 
+Now you will receive a dictionary with the following keys (will always contain each): 
+Cooper Kupp 
+Justin Jefferson 
+Davante Adams 
+Each key will have another dictionary as their values with the following keys: 
+Receiving yards (value between 1500-2000) 
+Receiving touchdowns (value between 10-20) 
+Receptions (value between 90-120) 
+If one receiver has the most in each category you have to return his name. If there is no receiver with the most values in all categories you should return 'None of them'. 
+Example: 
+{ 
+  'Cooper Kupp':  
+    { 
+    'Receiving yards': 1786,  
+    'Receiving touchdowns': 18,  
+    'Receptions': 117}, 
+  'Justin Jefferson':  
+    { 
+    'Receiving yards': 1700,  
+    'Receiving touchdowns': 17,  
+    'Receptions': 115}, 
+  'Davante Adams':  
+    { 
+    'Receiving yards': 1650,  
+    'Receiving touchdowns': 16,  
+    'Receptions': 110} 
+} 
+ 
+# The output should be 'Cooper Kupp' since he has more receiving yards, more receiving touchdowns and more receptions as well 
+Example with two receivers sharing values in at least one category: 
+{ 
+  'Cooper Kupp':  
+    { 
+    'Receiving yards': 1900,  
+    'Receiving touchdowns': 18,  
+    'Receptions': 117}, 
+  'Justin Jefferson':  
+    { 
+    'Receiving yards': 1800,  
+    'Receiving touchdowns': 17,  
+    'Receptions': 116}, 
+  'Davante Adams':  
+    { 
+    'Receiving yards': 1900,  
+    'Receiving touchdowns': 18,  
+    'Receptions': 110} 
+} 
+ 
+# The output should be 'None of them' since they are tied on receiving yards and receiving touchdowns 
+
+
+d1 = { 
+    'Cooper Kupp':  
+    { 
+        'Receiving yards': 1900,  
+        'Receiving touchdowns': 18,  
+        'Receptions': 117
+    }, 
+    'Justin Jefferson':  
+    { 
+        'Receiving yards': 1800,  
+        'Receiving touchdowns': 17,  
+        'Receptions': 116
+    }, 
+
+    'Davante Adams':  
+    {
+        'Receiving yards': 1900,  
+        'Receiving touchdowns': 18,  
+        'Receptions': 110
+    }
+}
+
+d2 = { 
+  'Cooper Kupp':  
+    { 
+    'Receiving yards': 1900,  
+    'Receiving touchdowns': 18,  
+    'Receptions': 117}, 
+  'Justin Jefferson':  
+    { 
+    'Receiving yards': 1800,  
+    'Receiving touchdowns': 17,  
+    'Receptions': 116}, 
+  'Davante Adams':  
+    { 
+    'Receiving yards': 1900,  
+    'Receiving touchdowns': 18,  
+    'Receptions': 110} 
+}
+
+def spam(d: dict):
+    names, yards, touches, receptions = [], [], [], []
+
+    for i in d:
+        v = d[i]
+
+        names.append(i)
+        yards.append(v['Receiving yards'])
+        touches.append(v['Receiving touchdowns'])
+        receptions.append(v['Receptions'])
+
+
+    y_index = yards.index(max(yards))
+    t_index = touches.index(max(touches))
+    r_index = receptions.index(max(receptions))
+
+    c = y_index == t_index and y_index == r_index and t_index == r_index
+    c2 = set(yards) == yards and set(touches) == touches and set(receptions) == receptions
+
+    if c and c2:
+        return names[y_index]
+    else:
+        return "None of them"
+
+s = time()
+print(spam(d2))
+e = time()
+print(f"Took: {e-s} second(s)")
 """
