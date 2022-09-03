@@ -2883,4 +2883,38 @@ s = time()
 print(spam(d2))
 e = time()
 print(f"Took: {e-s} second(s)")
+
+Given two sorted arrays of distinct elements. There is only 1 difference between the arrays. First array has one element extra added in between. Find the index of the extra element. 
+ 
+Example 1: 
+ 
+Input: 
+N = 7 
+A[] = {2,4,6,8,9,10,12} 
+B[] = {2,4,6,8,10,12} 
+Output: 4 
+Explanation: In the second array, 9 is 
+missing and it's index in the first array 
+is 4. 
+Example 2: 
+
+Input: 
+N = 6 
+A[] = {3,5,7,9,11,13} 
+B[] = {3,5,7,11,13} 
+Output: 3 
+
+a = [5, 6]
+b = [5]
+
+def find_missing_index(a: list, b: list):
+    for i in a:
+        if not i in b:
+            return a.index(i)
+
+def find_missing_index2(a: list, b: list):
+    return a.index(sum(a) - sum(b))
+
+print(find_missing_index(a, b)) # 0.00004220008850097656 seconds
+print(find_missing_index2(a, b)) # 0.0000021457672119140625
 """
