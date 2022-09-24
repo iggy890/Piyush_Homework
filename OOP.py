@@ -130,12 +130,4 @@ print("No more bottles of milk on the wall!")
 
 __doc__ can show documentation for classes and methods. __doc__ is also useful for having a look at quick documentation, rather than having a look at the online documentation.
 
-Create an empty Class rectangle without a constructor provide the values of width, height and the top left corner as 0, 0 as a graph
-Constructor = __init__()
-
-     0 1 2 3 4
-0    | - - - |
-1    |       |
-2    | - - - |
-     0 1 2 3 4
 """
