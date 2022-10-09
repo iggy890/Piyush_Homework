@@ -2917,4 +2917,35 @@ def find_missing_index2(a: list, b: list):
 
 print(find_missing_index(a, b)) # 0.00004220008850097656 seconds
 print(find_missing_index2(a, b)) # 0.0000021457672119140625
+
+Homework: Finish This
 """
+
+#plane_type = input("What type of plane are you using? ").lower()
+#flight_length = int(input("How many minutes do you want to fly for? "))
+
+
+def max_income(planeType: str, length_for_day: int):
+    flights = int(500 / (length_for_day + 30))
+    print(f"There is a total of {flights} flights possible for {planeType} plane")
+
+    if planeType == '2 seater':
+        if length_for_day == 30:
+            print(f"You will make: ${flights * 100}")
+        if length_for_day == 60:
+            print(f"You will make: ${flights * 150}")
+    
+    if planeType == '4 seater':
+        if length_for_day == 30:
+            print(f"You will make: ${flights * 120}")
+        if length_for_day == 60:
+            print(f"You will make: ${flights * 200}")
+
+    if planeType == 'Historic':
+        if length_for_day == 30:
+            print(f"You will make: ${flights * 300}")
+        if length_for_day == 60:
+            print(f"You will make: ${flights * 500}")
+
+max_income("Historic", 60)
+

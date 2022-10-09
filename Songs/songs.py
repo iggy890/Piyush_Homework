@@ -12,6 +12,9 @@ class Songs:
             print(f"Created by {i.artist}")
             print(f"Created in {i.year}")
 
-            print(f"Song has{i.learnt}been learnt")
+            if i.learnt == "l\n":
+                print("Song has been learnt")
+            elif i.learnt == "u\n":
+                print("Song has not been learnt")
 
             print()
