@@ -1,1 +1,0 @@
-    current_vowels = vowels
