@@ -2919,14 +2919,22 @@ print(find_missing_index(a, b)) # 0.00004220008850097656 seconds
 print(find_missing_index2(a, b)) # 0.0000021457672119140625
 
 Homework: Finish This
-"""
 
-#plane_type = input("What type of plane are you using? ").lower()
-#flight_length = int(input("How many minutes do you want to fly for? "))
+class Time:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end + 0.5
 
+    def time_is_good(self, start_time, end_time):
+        condition_1 = (start_time > self.end and end_time > self.end)
+        condition_2 = (start_time < self.start - 0.5 and end_time < self.start - 0.5)
+        if condition_1 or condition_2:
+            return True
+        else:
+            return False
 
 def max_income(planeType: str, length_for_day: int):
-    flights = int(500 / (length_for_day + 30))
+    flights = int(600 / (length_for_day + 30))
     print(f"There is a total of {flights} flights possible for {planeType} plane")
 
     if planeType == '2 seater':
@@ -2947,5 +2955,132 @@ def max_income(planeType: str, length_for_day: int):
         if length_for_day == 60:
             print(f"You will make: ${flights * 500}")
 
-max_income("Historic", 60)
+seater_2 = (int(input("How many minutes should 2 seater plane to fly for? ")) + 30) / 60
 
+seater_4 = (int(input("How many minutes should 4 seater plane fly for? ")) + 30) / 60
+
+historic = (int(input("How many minutes should Historic plane fly for? ")) + 30) / 60
+
+plane_bookings = {"2 seater": (Time(8, 8.5), Time(9, 9.5), Time(10, 10.5)), "4 seater": (Time(14, 14.5), Time(16, 16.5), Time(17.5, 18)), "Historic": (Time(8, 8.5), Time(9, 9.5), Time(10, 10.5), Time(11, 11.5), Time(12, 12.5), Time(13, 13.5), Time(14, 14.5))}
+
+def book(start_time, end_time, planeType):
+    times = plane_bookings[planeType]
+    can_book_plane = True
+
+    if end_time < start_time:
+        print(" (!) End time cannot be earlier than start time")
+        return
+
+    if planeType == "2 seater":
+        if end_time - start_time > seater_2:
+            print(f" (!) Plane cannot operate for more than {seater_2 / 2 * 60} mins")
+            return
+    elif planeType == "4 seater":
+        if end_time - start_time > seater_4:
+            print(f" (!) Plane cannot operate for more than {seater_4 / 2 * 60} mins")
+            return
+    elif planeType == "Historic":
+        if end_time - start_time > historic:
+            print(f" (!) Plane cannot operate for more than {historic / 2 * 60} mins")
+            return
+
+    for i in times:
+        if i.time_is_good(start_time, end_time) == False:
+            can_book_plane = False
+
+    if can_book_plane:
+        print(f"Booking {planeType} at {start_time} - {end_time}.")
+        times = times + (Time(start_time, end_time),)
+        print(times)
+    else:
+        print(f"Cannot book {planeType} at {start_time}. Somebody is already flying!")
+
+book(8, 17, "2 seater")
+
+def calculate_profit():
+    profits = 0
+
+    seater_2_profits = plane_bookings["2 seater"]
+    seater_4_profits = plane_bookings["4 seater"]
+    historic_profits = plane_bookings["Historic"]
+
+    if seater_2 == 1:
+        print(f"Made £ {len(seater_2_profits) * 100} from 2 seater.\n")
+        profits += len(seater_2_profits) * 100
+    elif seater_2 == 1.5:
+        print(f"Made £ {len(seater_2_profits) * 150} from 2 seater.\n")
+        profits += len(seater_2_profits) * 150
+
+    if seater_4 == 1:
+        print(f"Made £ {len(seater_4_profits) * 120} from 4 seater.\n")
+        profits += len(seater_4_profits) * 120
+    elif seater_4 == 1.5:
+        print(f"Made £ {len(seater_4_profits) * 200} from 4 seater.\n")
+        profits += len(seater_4_profits) * 200
+
+    if historic == 1:
+        print(f"Made £ {len(historic_profits) * 300} from Historic.\n")
+        profits += len(historic_profits) * 300
+    elif historic == 1.5:
+        print(f"Made £ {len(historic_profits) * 500} from Historic.\n")
+        profits += len(historic_profits) * 500
+
+    print(f"Made £ {profits} in profits today.")
+
+calculate_profit()
+
+Self service checkout.
+
+shopping_tax = 0.055
+subtotal = 0
+
+print("Press 0 when you want to checkout")
+
+def get_items():
+    global subtotal
+
+    while True:
+        quantity = int(input("Please enter quantity (3 maximum): "))
+
+        if quantity == 0:
+            return
+
+        price = float(input("Please enter the price: "))
+
+        subtotal += price * quantity
+
+get_items()
+
+total = subtotal + (subtotal / shopping_tax)
+print(f"Subtotal: £ {subtotal} Shopping Tax: £ {total - subtotal}")
+print(f"Please pay: £ {total}")
+"""
+# Ubbi Dubbi program
+vowels = ["a", "e", "i", "o", "u", "y"]
+punctuation = [",", "!", ".", "?"]
+
+def ubbidubbi(eword: str):
+    new_data = ""
+    current_vowels = ["a", "e", "i", "o", "u"]
+    for i in eword:
+        if i in current_vowels:
+            if i != "e" and eword.index(i) != len(eword):
+                current_vowels.remove(i)
+                new_data += "ub" + i
+            elif not i in punctuation:
+                new_data += i
+        elif not i in punctuation:
+            new_data += i
+
+    return new_data
+
+def ubbidubbi_sentence(esentence: str):
+    esentence = esentence.lower()
+    ubbidubbis = ""
+
+    for i in esentence.split():
+        ubbidubbis += ubbidubbi(i) + " "
+    
+    return ubbidubbis
+
+print(ubbidubbi_sentence("are you speaking ubbi dubbi?"))
