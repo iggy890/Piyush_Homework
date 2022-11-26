@@ -1,6 +1,6 @@
 # https://1drv.ms/u/s!AhRsWP77xvhXgn7YdnL7ZveDWyVe
 import time, random
-a = """
+z471234798237498237498123749123749812374912740129347129471 = """
 t = "h"
 if t == "t":
     print("The t value has a value of t")
@@ -3054,7 +3054,7 @@ get_items()
 total = subtotal + (subtotal / shopping_tax)
 print(f"Subtotal: £ {subtotal} Shopping Tax: £ {total - subtotal}")
 print(f"Please pay: £ {total}")
-"""
+
 # Ubbi Dubbi program
 vowels = ["a", "e", "i", "o", "u", "y"]
 punctuation = [",", "!", ".", "?"]
@@ -3084,3 +3084,101 @@ def ubbidubbi_sentence(esentence: str):
     return ubbidubbis
 
 print(ubbidubbi_sentence("are you speaking ubbi dubbi?"))
+
+# Homework + 1
+
+def adjacent_repeats(string: str, find: str):
+    string, find, repeats = string.lower(), find.lower(), {}
+    previous_find = False
+    previous_find_index = 0
+    index = -1
+
+    for i in string:
+        index += 1
+        if i == find and previous_find == False:
+            previous_find_index = index
+            repeats[previous_find_index] = [previous_find_index, 1]
+            previous_find = True
+        elif i == find and previous_find == True:
+            repeats[previous_find_index] = [previous_find_index, (index - previous_find_index) + 1]
+        elif i != find:
+            previous_find = False
+    highest = -1
+    highest_tuple = ("ERROR", "ERROR")
+
+    for i in repeats:
+        if repeats[i][1] > highest:
+            highest = repeats[i][1]
+            highest_tuple = (repeats[i][1], repeats[i][0])
+
+    print(highest_tuple)
+
+adjacent_repeats("abxxcabxaaaxcabxxxxc", "x")
+
+
+def inbounds(num, min, max):
+    if num < min:
+        num = min
+    elif num > max:
+        num = max
+
+    return num
+
+def createspaces(numspaces):
+    spaces = ""
+    for i in range(numspaces):
+        spaces += " "
+    return spaces
+
+def multi_column_print(L, numcols):
+    s = ""
+
+    for i in L:
+        i = str(i)
+        s += (str(i) + createspaces(inbounds(len(i) - numcols, 1, numcols)))
+
+    return s
+
+L = [2**i for i in range(20)] 
+print(multi_column_print(L, 5))
+
+def multi_column_print(L: list, numcols: int):
+    s = ""
+    for i in L:
+        s = f'{s}{i:^{numcols}}'
+
+    return s
+
+L = [2**i for i in range(100000)] 
+s = time.time()
+print(multi_column_print(L, 5))
+e = time.time()
+print(f"Took {e-s} seconds to load")
+
+times = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+
+def get_year_month_and_day():
+    date = input('What is the date "YYYY/MM/DD: ')
+    splitted_date = date.split("/")
+    new_splitted_date = [int(i) for i in splitted_date]
+    print(new_splitted_date)
+
+    return new_splitted_date
+
+def is_leap_year(year):
+    if year % 4 == 0:
+        return True
+    else:
+        return False
+
+def getDaysInMonth(year, month, dTime):
+    leap_year = is_leap_year(year)
+    if month == 2 and leap_year:
+        return dTime[month] + 1
+    else:
+        return dTime[month]
+
+l = get_year_month_and_day()
+
+print(getDaysInMonth(l[0], l[1], times))
+"""
