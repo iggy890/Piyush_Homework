@@ -3181,4 +3181,57 @@ def getDaysInMonth(year, month, dTime):
 l = get_year_month_and_day()
 
 print(getDaysInMonth(l[0], l[1], times))
+
+prices = {"PS5": 499.99, "iPhone 12": 1299.99, "Macbook Pro": 1699.99}
+empty = {}
+
+def get_product():
+    product = input("Enter a product: ")
+    if product in prices.keys():
+        print(f"There is 1 {product} in store")
+    quantity = int(input("How many: "))
+
+    if quantity > 1:
+        print(f" (!) There is only 1 {product} in store.")
+
+    if product in prices.keys():
+        print(f"The price of {product} is ${prices[product] * quantity}")
+    else:
+        print("Hmm. This product doesn't exist, would you like to create a new one?")
+        create = input("Would you like create a new product Y / N: ")
+
+        if create == "Y":
+            name = input("Name: ")
+            price = float(input("Price: "))
+
+            prices[name] = price
+
+def get_revenue():
+    amount = input(f"Enter quantity sold ({len(prices)} products)")
+
+    l = amount.split(",")
+    total_price = 0
+    print(l)
+    index = 0
+    for i in prices:
+        print(f"Sales revenue of {i} is ${prices[i] * int(l[index])}")
+        total_price += int(l[index])
+        empty[i] = prices[i] * int(l[index])
+        index += 1
+
+get_revenue()
 """
+class Heater:
+    Temperature = 15
+
+    def __init__(self) -> None:
+        pass
+
+    def get_temperature(self) -> int:
+        return self.Temperature
+
+    def increase_temperature(self) -> None:
+        self.Temperature += 5
+
+    def decrease_temperature(self) -> None:
+        self.Temperature -= 5
