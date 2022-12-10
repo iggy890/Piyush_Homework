@@ -1,6 +1,6 @@
 # https://1drv.ms/u/s!AhRsWP77xvhXgn7YdnL7ZveDWyVe
 import time, random
-z471234798237498237498123749123749812374912740129347129471 = """
+a = """
 t = "h"
 if t == "t":
     print("The t value has a value of t")
@@ -3220,18 +3220,69 @@ def get_revenue():
         index += 1
 
 get_revenue()
-"""
+
 class Heater:
     Temperature = 15
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, min: float, max: float, increment: float) -> None:
+        self.min = min
+        self.max = max
+        if increment <= 0:
+            self.increment = 5
+        else:
+            self.increment = increment
 
     def get_temperature(self) -> int:
         return self.Temperature
 
-    def increase_temperature(self) -> None:
-        self.Temperature += 5
+    def set_increment(self, increment: float) -> None:
+        self.increment = increment
 
-    def decrease_temperature(self) -> None:
-        self.Temperature -= 5
+    def warmer(self) -> None:
+        if self.Temperature == self.max or self.Temperature + self.increment > self.max:
+            return
+
+        self.Temperature += self.increment
+
+    def cooler(self) -> None:
+        if self.Temperature == self.min or self.Temperature - self.increment < self.min:
+            return
+
+        self.Temperature -= self.increment
+
+class Complex:
+    i = 1
+
+    def __init__(self, RealPart: float = 5, ImaginaryPart: float = 5) -> None:
+        self.number = RealPart + ImaginaryPart * self.i
+
+        self.RealPart = RealPart
+        self.ImaginaryPart = ImaginaryPart
+
+    def add_complex(self, Other) -> None:
+        self.RealPart += Other.RealPart
+        Other.RealPart += self.RealPart
+
+        self.ImaginaryPart += Other.ImaginaryPart
+        Other.ImaginaryPart += self.ImaginaryPart
+
+    def subtract_complex(self, Other) -> None:
+        self.RealPart -= Other.RealPart
+        Other.RealPart -= self.RealPart
+
+        self.ImaginaryPart -= Other.ImaginaryPart
+        Other.ImaginaryPart -= self.ImaginaryPart
+
+    def print_complex(self) -> None:
+        print(f"Real Part = {self.RealPart}\nImaginary Part = {self.ImaginaryPart}")
+
+    def multiply_complex(self, Other) -> None:
+        self.RealPart *= Other.RealPart
+        Other.RealPart *= self.RealPart
+
+        self.ImaginaryPart *= Other.ImaginaryPart
+        Other.ImaginaryPart *= self.ImaginaryPart
+
+        print(f"self.RealPart = {self.RealPart}\tOther.RealPart = {Other.RealPart}")
+        print(f"self.ImaginaryPart = {self.ImaginaryPart}\tOther.ImaginaryPart = {Other.ImaginaryPart}")
+"""
