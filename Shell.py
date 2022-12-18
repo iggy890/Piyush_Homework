@@ -3285,4 +3285,69 @@ class Complex:
 
         print(f"self.RealPart = {self.RealPart}\tOther.RealPart = {Other.RealPart}")
         print(f"self.ImaginaryPart = {self.ImaginaryPart}\tOther.ImaginaryPart = {Other.ImaginaryPart}")
+
+class Distance:
+    def __init__(self, feet: float, inches: float):
+        self.origin_feet = feet
+        self.origin_inches = inches
+
+        self.feet = feet
+        self.inches = inches
+
+    def create(self):
+        self.feet = self.origin_feet
+        self.inches = self.origin_inches
+
+    def add_distance(self, distance):
+        tempfeet, tempinches = self.feet, self.inches
+
+        tempfeet += distance.feet
+        tempinches += distance.inches
+
+        try:
+            tempfeet += tempinches // 12
+            tempinches //= 12
+
+            self.feet = tempfeet
+            self.inches = tempinches
+        except ZeroDivisionError:
+            self.feet = tempfeet
+            self.inches = tempinches
+    
+    def is_greater(self, distance_2):
+        if self.feet > distance_2.feet or self.inches > distance_2.inches:
+            return False
+        elif self.feet < distance_2.feet or self.inches < distance_2.inches:
+            return True
+
+    def is_smaller(self, distance_2):
+        if self.feet > distance_2.feet or self.inches > distance_2.inches:
+            return True
+        elif self.feet < distance_2.feet or self.inches < distance_2.inches:
+            return False
+
+    def is_greater_equal(self, distance_2):
+        if self.feet >= distance_2.feet and self.inches >= distance_2.inches:
+            return True
+        else:
+            return False
+
+    def is_smaller_equal(self, distance_2):
+        if self.feet <= distance_2.feet and self.inches <= distance_2.inches:
+            return True
+        else:
+            return False
+
+    def is_equal(self, distance_2):
+        if self.feet == distance_2.feet and self.inches == distance_2.inches:
+            return True
+        else:
+            return False
+
+    def is_not_equal(self, distance_2):
+        if self.feet == distance_2.feet and self.inches == distance_2.inches:
+            return False
+        else:
+            return True
 """
+
