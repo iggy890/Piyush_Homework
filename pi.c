@@ -15,7 +15,7 @@ void get_pi(int precision) {
         k += 2;
     }
 
-    printf("%f", s);
+    printf("%.512f", s);
 }
 
 int main() {
