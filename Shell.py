@@ -1,5 +1,5 @@
 # https://1drv.ms/u/s!AhRsWP77xvhXgn7YdnL7ZveDWyVe
-import time, random
+import time, random, math
 a = """
 t = "h"
 if t == "t":
@@ -3349,5 +3349,304 @@ class Distance:
             return False
         else:
             return True
+
+# Create a class Vehicle that has can be
+# 2-wheeler, 4-wheeler and multi-wheeler
+# 2-wheeler and 4-wheeler will have another 
+# subcategory: sports and passenger and luxury (only for 4-wheeler). and in
+# multi-wheeler subcategory it will be private
+# multi-wheeler and public multi-wheeler
+# attribute: fare will be taking the cost of the
+# prices into account + mileage cost
+# if you print the object it should display its attributes / properties
+
+# Create sports, passenger and luxury classes
+class Sports:
+    def __init__(self):
+        self.type = "Sports"
+
+class Passenger:
+    def __init__(self):
+        self.type = "Passenger"
+
+class Luxury:
+    def __init__(self):
+        self.type = "Luxury"
+
+sports = Sports()
+passenger = Passenger()
+luxury = Luxury()
+
+class Wheeler_2:
+    def __init__(self):
+        self.cost = 500
+
+        self.subcategory = (sports.type, passenger.type)
+        self.fare = 5
+
+    def print(self):
+        print("Type: 2 Wheeler")
+
+        print(f"Buying cost: {self.cost}")
+        print(f"Subcategory: {self.subcategory}")
+        print(f"Fare: {self.fare}")
+
+class Wheeler_4:
+    def __init__(self):
+        self.cost = 15000
+
+        self.subcategory = (sports.type, passenger.type, luxury.type)
+        self.fare = 60
+
+    def print(self):
+        print("Type: 4 Wheeler")
+
+        print(f"Buying cost: {self.cost}")
+        print(f"Subcategory: {self.subcategory}")
+        print(f"Fare: {self.fare}")
+
+class Multiwheeler:
+    def __init__(self):
+        self.cost = 50000
+
+        self.subcategory = (sports.type, passenger.type, luxury.type)
+        self.fare = 250
+
+    def print(self):
+        print("Type: Multiwheeler")
+
+        print(f"Buying cost: {self.cost}")
+        print(f"Subcategory: {self.subcategory}")
+        print(f"Fare: {self.fare}")
+
+class Vehicle:
+    def __init__(self, type):
+        self.type = type
+
+    def print(self):
+        self.type.print()
+
+bus = Multiwheeler()
+
+bus_vehicle = Vehicle(bus)
+
+bus_vehicle.print()
+
+class Shape:
+    def __init__(self, type: str, radius: float = 0, length: float = 0, width: float = 0):
+        self.type = type
+
+        self.radius = radius
+
+        self.length = length
+        self.width = width
+
+    def area(self):
+        if self.type == "Circle":
+            return Circle(self.radius).area()
+        elif self.type == "Rectangle":
+            return Rectangle(self.length, self.width).area()
+
+class Circle():
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return round((math.pi * self.radius) ** 2, 1)
+
+class Rectangle():
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+print(Shape("Circle", 12).area())
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    def __init__(self, name):
+        Animal.__init__(self, name)
+
+    def speak(self):
+        print(f"{self.name}: Woof")
+
+class Cat(Animal):
+    def __init__(self, name):
+        Animal.__init__(self, name)
+    
+    def speak(self):
+        print(f"{self.name}: Meow")
+
+class Employee:
+    def __init__(self, name: str, ID: int, salary: float):
+        self.name = name
+        self.ID = ID
+        self.salary = salary
+
+    def to_string(self):
+        print(f"{self.name}: Employee, ID: {self.ID}, Salary: {self.salary}")
+
+class Manager(Employee):
+    def __init__(self, name: str, ID: int, salary: float, head_of: str):
+        Employee.__init__(self, name, ID, salary)
+        self.head_of = head_of
+
+    def to_string(self):
+        print(f"{self.name}: Manager, ID: {self.ID}, Salary: {self.salary}. Head of: {self.head_of} department")
+
+class Vehicle:
+    def __init__(self, make, model, year: int) -> None:
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def equals(self, other):
+        if self == other:
+            return True
+        return False
+
+class Car(Vehicle):
+    def __init__(self, make, model, year: int, doors: int) -> None:
+        Vehicle.__init__(self, make, model, year)
+        self.doors = doors
+
+    def equals(self, other):
+        if self == other:
+            return True
+        return False
+
+class Shape:
+    def __init__(self, type: str):
+        self.type = type
+
+    def draw(self):
+        print("Drawing shape")
+
+class Circle(Shape):
+    def __init__(self, type: str):
+        self.type = type
+
+    def draw(self):
+        print("Drawing circle")
+
+class Square(Shape):
+    def __init__(self, type: str):
+        self.type = type
+
+    def draw(self):
+        print("Drawing square")
 """
 
+"""
+  1   2   3
+-------------
+| * | * | * | A
+| * | * | * | B
+| * | * | * | C
+-------------
+
+"""
+letters = ("a", "b", "c")
+class Row:
+    def __init__(self, row: str, last_seen: str) -> None:
+        self.row = row
+        self.last_seen = last_seen
+
+        self.vertical = 0
+        self.horizontal = 0
+        self.diagonal = 0
+
+    def won_vertical(self, new_last_seen: str):
+        letter_last_seen = letters.index(self.last_seen[0])
+        number_last_seen = int(self.last_seen[1])
+
+        letter_new_last_seen = letters.index(new_last_seen[0])
+        number_new_last_seen = int(self.last_seen[1])
+
+        if letter_last_seen + 1 == letter_new_last_seen and number_last_seen == number_new_last_seen:
+            if self.vertical == 0:
+                self.vertical = 2
+            elif self.vertical == 2:
+                self.vertical = 3
+                return True
+        else:
+            self.vertical = 0
+
+    def won_horizontal(self, new_last_seen: str):
+        letter_last_seen = letters.index(self.last_seen[0])
+        number_last_seen = int(self.last_seen[1])
+
+        letter_new_last_seen = letters.index(new_last_seen[0])
+        number_new_last_seen = int(self.last_seen[1])
+
+
+class Board:
+    def __init__(self):
+        self.positions = {"a1": " ", "a2": " ", "a3": " ", "b1": " ", "b2": " ", "b3": " ", "c1": " ", "c2": " ", "c3": " "}
+        self.o = Row(" ", " ")
+        self.x = Row(" ", " ")
+
+    def add_string(self, string: str, pos: str) -> bool:
+        try: 
+            if self.positions[pos.lower()] != " ":
+                print("(!) Cannot change an existing move")
+                return False
+        except KeyError:
+            print("(!) That position is not valid")
+            return False
+
+        try:
+            self.positions[pos.lower()] = string
+        except KeyError:
+            print("(!) That position is not valid")
+            return False
+
+        return True   
+
+    def draw(self):
+        print("  1   2   3")
+        print("-------------")
+
+        for i, j in zip(self.positions.keys(), self.positions.values()):
+            num = int(i[-1])
+
+            if num == 3:
+                print(f"| {j} | {i[0].upper()}")
+            else:
+                print(f"| {j} ", end='')
+
+        print("-------------")
+
+print("Welcome to Tic Tac Toe (V1.0)")
+play = input("Would you like to play (Y/n): ")
+o_or_x = True
+val = "O"
+
+if play == "Y":
+    print("Welcome!")
+    print("Intializing the board...")
+    board = Board()
+    print("Drawing the board...")
+    board.draw()
+
+    while True:
+        if o_or_x == True:
+            pos = input("Where would you like to place an O? ")
+            o_or_x = False
+            val = "O"
+        else:
+            pos = input("Where would you like to place an X? ")
+            o_or_x = True
+            val = "X"
+
+        if board.add_string(val, pos) == False:
+            print("Try again")
+        else:
+            board.draw()   
+else:
+    print("Goodbye! We wish to see you soon!")
