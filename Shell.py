@@ -3550,7 +3550,7 @@ class Square(Shape):
 | * | * | * | C
 -------------
 
-"""
+
 letters = ("a", "b", "c")
 class Row:
     def __init__(self, row: str, last_seen: str) -> None:
@@ -3650,3 +3650,4 @@ if play == "Y":
             board.draw()   
 else:
     print("Goodbye! We wish to see you soon!")
+"""
