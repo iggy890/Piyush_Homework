@@ -3858,7 +3858,7 @@ class Cuboid(Shape):
     def area(self):
         print(self.length * self.width * self.height)
         return self.length * self.width * self.height
-"""
+
 with open("dumps.txt", "w") as f:
     f.write("1\n2\n3")
 
@@ -3868,6 +3868,97 @@ with open("dumps.txt", "r") as f:
 print(output)
 print(type(output))
 
-stroutput = str(output)
+stroutput = repr(output)
 print(stroutput)
 print(type(stroutput))
+
+l = a.split("\n")
+for i in l:
+    time.sleep(0.05)
+    print(i)
+
+class Car:
+    def drive(self):
+        print("Driving a car")
+
+class Sedan(Car):
+    def drive(self):
+        print("Driving a Sedan")
+
+class SUV(Car):
+    def drive(self):
+        print("Driving an SUV")
+
+class Employee:
+    def __init__(self, name, pay_rate):
+        self.name = name
+        self.pay_rate = pay_rate
+
+    def calculatePay(self):
+        pass
+
+class FullTimeEmployee(Employee):
+    def __init__(self, name, pay_rate, hours_worked):
+        super().__init__(name, pay_rate)
+        self.hours_worked = hours_worked
+
+    def calculatePay(self):
+        return self.pay_rate * self.hours_worked
+
+class PartTimeEmployee(Employee):
+    def __init__(self, name, pay_rate, hours_worked):
+        super().__init__(name, pay_rate)
+        self.hours_worked = hours_worked
+
+    def calculatePay(self):
+        return self.pay_rate * self.hours_worked * 0.5
+
+class Computer:
+    def turnOn(self):
+        pass
+
+class Desktop(Computer):
+    def turnOn(self):
+        print("(!) Desktop power button clicked")
+
+class Laptop(Computer):
+    def turnOn(self):
+        print("(!) Laptop is turned on")
+
+class Animal:
+    def reproduce(self):
+        pass
+
+class Mammals(Animal):
+    def reproduce(self):
+        print("(!) New mammal")
+
+class Birds(Animal):
+    def reproduce(self):
+        print("(!) New Bird")
+
+class Food:
+    def cook(self):
+        pass
+
+class Vegetable(Food):
+    def cook(self):
+        print("(!) Cooking Vegetables")
+
+class Meat(Food):
+    def cook(self):
+        print("(!) Cooking Meat")
+
+class Payment:
+    def processPayment(self):
+        pass
+
+class CreditCardPayment(Payment):
+    def processPayment(self):
+        print("(!) Processing Payment")
+
+class CashPayment(Payment):
+    def processPayment(self):
+        print("(!) Processing Cash Payment")
+
+"""
