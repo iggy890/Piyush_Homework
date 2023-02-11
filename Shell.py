@@ -3961,4 +3961,31 @@ class CashPayment(Payment):
     def processPayment(self):
         print("(!) Processing Cash Payment")
 
+class Pokemon:
+    def __init__(self, name, level, type, max_hp, attack, defense, speed):
+        self.name = name
+        self.level = level
+        self.type = type
+        self.max_hp = max_hp
+        self.current_hp = max_hp
+        self.attack = attack
+        self.defense = defense
+        self.speed = speed
+    
+    def attack_pokemon(self, other_pokemon):
+        damage = self.attack - other_pokemon.defense
+        other_pokemon.current_hp -= damage
+        print(f"{self.name} attacked {other_pokemon.name} and dealt {damage} damage")
+        
+    def check_status(self):
+        if self.current_hp <= 0:
+            print(f"(!) {self.name} has died")
+        else:
+            print(f"(!) {self.name} has {self.current_hp} HP remaining")
+
+pikachu = Pokemon("Pikachu", 5, "Electric", 50, 75, 40, 90)
+charmander = Pokemon("Charmander", 5, "Fire", 45, 60, 50, 80)
+
+pikachu.attack_pokemon(charmander)
+charmander.check_status()
 """
