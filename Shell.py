@@ -3960,8 +3960,10 @@ class CreditCardPayment(Payment):
 class CashPayment(Payment):
     def processPayment(self):
         print("(!) Processing Cash Payment")
+"""
+l = []
 
-class Pokemon:
+class Card:
     def __init__(self, name, level, type, max_hp, attack, defense, speed):
         self.name = name
         self.level = level
@@ -3971,21 +3973,60 @@ class Pokemon:
         self.attack = attack
         self.defense = defense
         self.speed = speed
+
+class Pokémon(Card):
+    def __init__(self, name: str, level: int, type: str, max_hp: int, attack: float, defense: float, speed: float):
+        Card.__init__(self, name, level, type, max_hp, attack, defense, speed)
     
     def attack_pokemon(self, other_pokemon):
         damage = self.attack - other_pokemon.defense
         other_pokemon.current_hp -= damage
         print(f"{self.name} attacked {other_pokemon.name} and dealt {damage} damage")
         
-    def check_status(self):
+    def display_status(self):
         if self.current_hp <= 0:
             print(f"(!) {self.name} has died")
         else:
             print(f"(!) {self.name} has {self.current_hp} HP remaining")
 
-pikachu = Pokemon("Pikachu", 5, "Electric", 50, 75, 40, 90)
-charmander = Pokemon("Charmander", 5, "Fire", 45, 60, 50, 80)
+class Energy(Card):
+    def __init__(self, name: str, level: int, type: str, max_hp: int, attack: float, defense: float, speed: float):
+        Card.__init__(self, name, level, type, max_hp, attack, defense, speed)
+    
+    def attack_pokemon(self, other_pokemon):
+        damage = self.attack - other_pokemon.defense
+        other_pokemon.current_hp -= damage
+        print(f"{self.name} attacked {other_pokemon.name} and dealt {damage} damage")
+        
+    def display_status(self):
+        if self.current_hp <= 0:
+            print(f"(!) {self.name} has died")
+        else:
+            print(f"(!) {self.name} has {self.current_hp} HP remaining")
 
-pikachu.attack_pokemon(charmander)
-charmander.check_status()
-"""
+class Trainer(Card):
+    def __init__(self, name: str, level: int, type: str, max_hp: int, attack: float, defense: float, speed: float):
+        Card.__init__(self, name, level, type, max_hp, attack, defense, speed)
+    
+    def attack_pokemon(self, other_pokemon):
+        damage = self.attack - other_pokemon.defense
+        other_pokemon.current_hp -= damage
+        print(f"{self.name} attacked {other_pokemon.name} and dealt {damage} damage")
+        
+    def display_status(self):
+        if self.current_hp <= 0:
+            print(f"(!) {self.name} has died")
+        else:
+            print(f"(!) {self.name} has {self.current_hp} HP remaining")
+
+l.append(Pokémon("Pikachu", 5, "Electric", 50, 75, 40, 90))
+l.append(Pokémon("Charmander", 5, "Fire", 45, 60, 50, 80))
+l.append(Pokémon("Alakazam", 42, "Psychic", 80, 30, 0, 100))
+l.append(Pokémon("Blastoise", 52, "Water", 100, 40, 0, 100))
+
+#with f as open("pokemon.csv", "r"):
+    
+
+#def list_to_pokemon(li):
+
+
