@@ -3960,7 +3960,7 @@ class CreditCardPayment(Payment):
 class CashPayment(Payment):
     def processPayment(self):
         print("(!) Processing Cash Payment")
-"""
+
 l = []
 
 class Card:
@@ -4024,9 +4024,24 @@ l.append(Pokémon("Charmander", 5, "Fire", 45, 60, 50, 80))
 l.append(Pokémon("Alakazam", 42, "Psychic", 80, 30, 0, 100))
 l.append(Pokémon("Blastoise", 52, "Water", 100, 40, 0, 100))
 
-#with f as open("pokemon.csv", "r"):
-    
 
-#def list_to_pokemon(li):
+# Create a class car, in class take name, brand and current speed
+# Create methods, accelerate: increase speed by 5 brake: decrease speed by 10
 
+class Car:
+    def __init__(self, name, brand, current_speed=0):
+        self.name = name
+        self.brand = brand
+        self.current_speed = current_speed
 
+    def accelerate(self):
+        self.current_speed += 5
+
+    def brake(self):
+        self.current_speed -= 10
+        if self.current_speed < 0:
+            self.current_speed = 0
+
+    def __str__(self):
+        return f"(!) {self.brand} {self.name}, Current speed: {self.current_speed} km/h"
+"""
