@@ -4045,38 +4045,3 @@ class Car:
     def __str__(self):
         return f"(!) {self.brand} {self.name}, Current speed: {self.current_speed} km/h"
 """
-
-def encrypt(message: str, key: str) -> str:
-    return message
-
-def decrypt(message: str, key: str) -> str:
-    return message
-
-args = sys.argv
-args.remove("Shell.py")
-usernames = []
-passwords = []
-
-if args == []:
-    print("Usage: python3 Shell.py [login]")
-
-def find_str_in_list(s: str, l: list):
-    for i in l:
-        if i == l:
-            return True
-    return False
-
-if args[0] == "login":
-    username = input("Username: ")
-    if not find_str_in_list(username, usernames):
-        option = input("You don't have an account, would you like to create one? Y/N")
-        if option == "Y":
-            print("Creating Account...")
-            usernames.append(username)
-            password = input("$ Password: ")
-            passwords.append(encrypt(password, username))
-            print("Finalizing...")
-            print("Complete!")
-
-    print(f"Welcome {username} what would you like to do? ")
-    command = input("")
