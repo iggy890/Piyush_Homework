@@ -1,3 +1,4 @@
+# Finish this
 from sys import argv
 FILE = "logins.txt"
 
@@ -37,7 +38,7 @@ def find_str_in_list(s: str, l: list):
 if args[0] == "login":
     username = input("Username: ")
     if not find_str_in_list(username, usernames):
-        option = input("You don't have an account, would you like to create one? Y/N")
+        option = input("You don't have an account, would you like to create one? Y/N ")
         if option == "Y":
             print("Creating Account...")
             usernames.append(username)
