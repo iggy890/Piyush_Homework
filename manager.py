@@ -49,3 +49,4 @@ if args[0] == "login":
 
     print(f"Welcome {username} what would you like to do? ")
     command = input("")
+    
