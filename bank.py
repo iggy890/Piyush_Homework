@@ -38,3 +38,5 @@ options_label = Label(window, text="Options:")
 options_label.grid(row=3, column=1)
 
 window.mainloop()
+
+print("END")
